@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Rental } from "../../../models/rental.model";
-import { Category } from "src/app/models/category.enum";
-import { RentalService } from '../../../services/rental.service';
+import { RentalService } from "../../../services/rental.service";
 
 @Component({
   selector: "app-rental-list",
@@ -14,6 +13,9 @@ export class RentalListComponent implements OnInit {
   constructor(private rentalService: RentalService) {}
 
   ngOnInit() {
-    this.rentals =this.rentalService.getRentals();
+    this.rentalService.getRentals().subscribe(
+      (res: Rental[]) => (this.rentals = res),
+      err => console.log(err)
+    );
   }
 }
