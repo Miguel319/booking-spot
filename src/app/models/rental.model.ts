@@ -1,7 +1,7 @@
 import { Category } from "./category.enum";
 
 export class Rental {
-  id: number;
+  id: number | string;
   title: string;
   city: string;
   street: string;

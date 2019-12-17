@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Rental } from "src/app/models/rental.model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-rental-item",
@@ -9,7 +10,12 @@ import { Rental } from "src/app/models/rental.model";
 export class RentalItemComponent implements OnInit {
   @Input() rental: Rental;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  seeDetails() {
+    this.router.navigateByUrl(`/rentals/${this.rental.id}`);
+  }
+
 }
