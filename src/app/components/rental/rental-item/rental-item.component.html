@@ -4,7 +4,8 @@
       <img class="card-img-top" [src]="rental.image" alt="{{ rental.title }}" />
       <div class="card-block">
         <h6 class="card-subtitle font-weight-bold">
-          Whole Apartment &#183; New York
+          {{ rental.shared ? "Shared" : "Whole" }}
+          {{ rental.category }} &#183; {{ rental.city | titlecase }}
         </h6>
         <h4 class="card-title">{{ rental.title }}</h4>
         <p class="card-text">$240 per Night &#183; Free Cancelation</p>

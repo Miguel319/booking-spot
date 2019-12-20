@@ -1,7 +1,7 @@
 import { Category } from "./category.enum";
 
 export class Rental {
-  id: number | string;
+  _id: number | string;
   title: string;
   city: string;
   street: string;
@@ -14,7 +14,7 @@ export class Rental {
   createdAt?: Date;
 
   constructor(data: Rental) {
-    this.id = data.id;
+    this._id = data._id;
     this.title = data.title;
     this.city = data.city;
     this.street = data.street;
