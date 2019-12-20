@@ -46,3 +46,4 @@ testem.log
 Thumbs.db
 
 /server/config/dev.js
+/src/keys

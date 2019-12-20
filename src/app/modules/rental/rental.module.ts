@@ -5,6 +5,8 @@ import { RentalItemComponent } from "../../components/rental/rental-item/rental-
 import { RentalComponent } from "../../components/rental/rental.component";
 import { Routes, RouterModule } from "@angular/router";
 import { RentalDetailsComponent } from "../../components/rental/rental-details/rental-details.component";
+import { GMapModule } from "../g-map/g-map.module";
+import { CameItPipe } from "src/app/pipes/came-it.pipe";
 
 const routes: Routes = [
   { path: "rentals", component: RentalComponent },
@@ -17,7 +19,7 @@ const routes: Routes = [
     RentalComponent,
     RentalDetailsComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), GMapModule],
   exports: [RentalListComponent, RentalItemComponent, RentalComponent]
 })
 export class RentalModule {}

@@ -6,7 +6,7 @@
       </div>
       <div class="col-md-6">
         <!-- Will be replaced with map !!!! -->
-        <img src="{{ rental.image }}" alt="" />
+        <app-g-map [location]="rental.city + ', ' + rental.street"></app-g-map>
       </div>
     </div>
   </div>
