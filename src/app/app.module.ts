@@ -6,11 +6,12 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { RentalModule } from "./modules/rental/rental.module";
+import { CameItPipe } from './pipes/came-it.pipe';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, NavbarComponent, CameItPipe],
   imports: [BrowserModule, AppRoutingModule, RentalModule, HttpClientModule],
-  providers: [],
+  providers: [CameItPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
