@@ -22,7 +22,7 @@ export class RentalDetailsComponent implements OnInit {
   }
 
   getDetails() {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get("rentalId"));
+    const id = this.activatedRoute.snapshot.paramMap.get("rentalId");
 
     this.rentalS.getRental(id).subscribe(
       (res: Rental) => {
