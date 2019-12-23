@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { GMapComponent } from "../../components/g-map/g-map.component";
-import { GOOGLE_API_KEY } from "../../../keys/keys";
+import { GOOGLE_API_KEY } from "../../keys/keys";
 import { AgmCoreModule } from "@agm/core";
 import { CommonModule } from "@angular/common";
 
