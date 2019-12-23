@@ -7,13 +7,16 @@ const DummyDb = require('./seeder/dummy-db.js');
 const rentalRoutes = require('./routes/rentals-route');
 const userRoutes = require('./routes/users-route');
 
-mongoose.connect(config.DB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  const dummyDb = new DummyDb();
-  //dummyDb.seedToDb();
-});
+mongoose
+  .connect(config.DB_URI, {
+     useCreateIndex: true,
+     useNewUrlParser: true,
+     useUnifiedTopology: true
+  })
+  .then(() => {
+    const dummyDb = new DummyDb();
+    dummyDb.seedToDb();
+  });
 
 const app = express();
 
