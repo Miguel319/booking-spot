@@ -11,7 +11,7 @@ const errorHandler = (err, req, res, next) => {
   // Required fields
   if (err.message.includes("mandatory")) {
     title = "Required fields";
-    msg = `${err.message[0]} is mandatory`;
+    msg = `${err.message[0]} is mandatory.`;
     error = new ErrorResponse(title, msg, 400);
   }
 
@@ -25,7 +25,7 @@ const errorHandler = (err, req, res, next) => {
 
     title = "Duplicate data";
     msg = `There's already ${record} of this value in the database.`;
-    error = new ErrorResponse(title, msg, 400);
+    error = new ErrorResponse(title, msg, 401);
   }
 
   // Mongoose bad ObjectId
@@ -35,6 +35,14 @@ const errorHandler = (err, req, res, next) => {
     error = new ErrorResponse(title, msg, 404);
   }
 
+  // Check the username's length
+  if (req.body.username && req.body.username.length < 4) {
+    title = "Username is too short";
+    msg = "The must be at least 4 characters long.";
+    error = new ErrorResponse(title, msg, 400);
+  }
+
+  // Check whether passwords match
   if (req.body.passwordConfirmation) {
     const { password, passwordConfirmation } = req.body;
 
@@ -46,21 +54,15 @@ const errorHandler = (err, req, res, next) => {
       return res.status(error.statusCode).json({
         success: false,
         title: title,
-        msg: error.message
+        message: error.message
       });
     }
   }
-  // Mongoose validation error
-  /*if (err.name === "ValidatorError") {
-    const title = "Validation error";
-    const messages = Object.values(err.errors).map(val => `${val.message}.`);
-    error = new ErrorResponse(title, message, 400);
-  }*/
 
   res.status(error.statusCode || 500).json({
     success: false,
     title: title,
-    msg: error.message || "Server Error"
+    message: error.message || "Server Error"
   });
 };
 

@@ -34,13 +34,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var Rental = require('../models/rentals-model.js');
+var Rental = require("../models/rental");
+var User = require("../models/user");
 var DummyDb = /** @class */ (function () {
     function DummyDb() {
         this.createRentals();
+        this.createUsers();
     }
     DummyDb.prototype.createRentals = function () {
-        this.rentals = [{
+        this.rentals = [
+            {
                 title: "Nice view on ocean",
                 city: "San Francisco",
                 street: "Main street",
@@ -75,12 +78,24 @@ var DummyDb = /** @class */ (function () {
             }
         ];
     };
+    DummyDb.prototype.createUsers = function () {
+        this.users = [
+            {
+                username: "Test",
+                email: "test@gmail.com",
+                password: "testtest"
+            }
+        ];
+    };
     DummyDb.prototype.cleanDb = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, Rental.deleteMany()];
+                    case 0: return [4 /*yield*/, User.deleteMany()];
                     case 1:
+                        _a.sent();
+                        return [4 /*yield*/, Rental.deleteMany()];
+                    case 2:
                         _a.sent();
                         return [2 /*return*/];
                 }
@@ -88,11 +103,15 @@ var DummyDb = /** @class */ (function () {
         });
     };
     DummyDb.prototype.addRentalsToDb = function () {
+        var user = new User(this.users[0]);
         for (var _i = 0, _a = this.rentals; _i < _a.length; _i++) {
             var rental = _a[_i];
             var newRental = new Rental(rental);
+            newRental.user = user;
+            user.rentals.push(newRental);
             newRental.save();
         }
+        user.save();
     };
     DummyDb.prototype.seedToDb = function () {
         return __awaiter(this, void 0, void 0, function () {
