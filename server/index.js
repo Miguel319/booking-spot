@@ -5,10 +5,11 @@ const config = require("./config/dev");
 const DummyDb = require("./seeder/dummy-db.js");
 const errorHandler = require("./middleware/error");
 const BASE_URL = "/api/v1";
+const cookieParser = require('cookie-parser');
 
 //Routes
-const rentalRoutes = require("./routes/rentals-route");
-const userRoutes = require("./routes/users-route");
+const rentalRoutes = require("./routes/rental");
+const authRoutes = require("./routes/auth");
 
 // Mongoose connection
 mongoose
@@ -24,8 +25,10 @@ mongoose
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cookieParser());
+
 app.use(`${BASE_URL}/rentals`, rentalRoutes);
-app.use(`${BASE_URL}/auth`, userRoutes);
+app.use(`${BASE_URL}/auth`, authRoutes);
  
 app.use(errorHandler);
 
