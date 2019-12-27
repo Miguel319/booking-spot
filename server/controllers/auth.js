@@ -19,6 +19,17 @@ exports.signup = asyncHandler(async (req, res, next) => {
     );
   }
 
+  // Make sure the passwords match
+  if (passwordConfirmation !== password) {
+    return next(
+      new ErrorResponse(
+        "Passwords don't match",
+        "The password must be the same as the confirmation.",
+        400
+      )
+    );
+  }
+
   // Create user
   const user = await User.create({
     username,

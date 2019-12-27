@@ -4,7 +4,7 @@ const Rental = require("../models/rental");
 const { protect } = require("../middleware/auth");
 
 // Get all rentals
-router.get("", protect, (req, res) =>
+router.get("",  /*protect*/ (req, res) =>
   Rental.find({}, (err, data) => res.json(data))
 );
 
