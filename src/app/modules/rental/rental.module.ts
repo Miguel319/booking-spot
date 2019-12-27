@@ -20,6 +20,11 @@ const routes: Routes = [
     RentalDetailsComponent
   ],
   imports: [CommonModule, RouterModule.forChild(routes), GMapModule],
-  exports: [RentalListComponent, RentalItemComponent, RentalComponent]
+  exports: [
+    RentalListComponent,
+    RentalItemComponent,
+    RentalComponent,
+    RentalDetailsComponent
+  ]
 })
 export class RentalModule {}

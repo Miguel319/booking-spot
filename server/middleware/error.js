@@ -42,22 +42,15 @@ const errorHandler = (err, req, res, next) => {
     error = new ErrorResponse(title, msg, 400);
   }
 
-  // Check whether passwords match
-  if (req.body.passwordConfirmation) {
-    const { password, passwordConfirmation } = req.body;
 
-    if (passwordConfirmation !== password) {
-      title = "Passwords must match";
-      msg = "The password must be the same as the confirmation.";
+  // Make sure the password has at least 4 characters
+  if (req.body.password && req.body.passwordConfirmation && req.body.password.length < 4) {
+      title = "The password is too short";
+      msg = "The password must be at least 4 characters long.";
       error = new ErrorResponse(title, msg, 400);
-
-      return res.status(error.statusCode).json({
-        success: false,
-        title: title,
-        message: error.message
-      });
-    }
   }
+
+
 
   res.status(error.statusCode || 500).json({
     success: false,

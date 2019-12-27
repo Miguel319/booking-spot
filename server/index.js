@@ -19,7 +19,7 @@ mongoose
   })
   .then(() => {
     const dummyDb = new DummyDb();
-    dummyDb.seedToDb();
+    // dummyDb.seedToDb();
   });
 
 const app = express();
