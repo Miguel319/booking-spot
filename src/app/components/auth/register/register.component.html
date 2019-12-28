@@ -67,7 +67,9 @@
           </div>
 
           <div class="alert" *ngIf="customError">
-            <h5>{{ customError.title }}</h5>
+            <h5>
+              <b>{{ customError.title }}</b>
+            </h5>
             <p>{{ customError.message }}</p>
           </div>
 
@@ -78,6 +80,7 @@
               (click)="cleanError()"
               class="btn btn-bwn btn-block"
             >
+              <i class="far fa-save"></i>
               Submit
             </button>
           </div>

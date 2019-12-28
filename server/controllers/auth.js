@@ -105,6 +105,7 @@ const sendTokenResponse = (user, statusCode, res) => {
     .cookie("token", token, options)
     .json({
       success: true,
+      user: user.username,
       token
     });
 };
@@ -119,6 +120,6 @@ exports.getLoggedInUser = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    user
+    name: username
   });
 });
