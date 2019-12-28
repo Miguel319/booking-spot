@@ -27,8 +27,6 @@ export class AuthService {
   getLoggedInUser() {
     const token = localStorage.getItem("token");
 
-    console.log(token);
-
     let headers = new HttpHeaders();
 
     headers = headers.set("Application-Type", "application/json");
@@ -39,7 +37,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    localStorage.removeItem("token_meta_data");
 
     this.decodedToken = undefined;
   }
@@ -48,12 +46,16 @@ export class AuthService {
     this.decodedToken = this.jwt.decodeToken(token);
 
     localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(this.decodedToken));
+    localStorage.setItem("token_meta_data", JSON.stringify(this.decodedToken));
     return token;
   }
 
   isUserLoggedIn(): boolean {
     const token = localStorage.getItem("token");
     return !this.jwt.isTokenExpired(token);
+  }
+
+  getToken() {
+    return JSON.stringify(localStorage.getItem("token"));
   }
 }
