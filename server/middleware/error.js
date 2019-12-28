@@ -38,7 +38,7 @@ const errorHandler = (err, req, res, next) => {
   // Check the username's length
   if (req.body.username && req.body.username.length < 4) {
     title = "Username is too short";
-    msg = "The must be at least 4 characters long.";
+    msg = "The username must be at least 4 characters long.";
     error = new ErrorResponse(title, msg, 400);
   }
 

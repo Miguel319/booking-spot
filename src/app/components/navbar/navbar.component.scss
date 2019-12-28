@@ -1,3 +1,17 @@
+nav {
+  background: #68c988; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4d9c84,
+    #b6dfa0
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #9bcfc0,
+    #bfe2ab
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .navbar-brand {
   font-size: 1.4rem;
 }
@@ -7,7 +21,22 @@ input {
   font-size: 1.2rem;
 }
 
-
 .logo {
   width: 100px;
+
+  &:hover {
+    transform: translateY(2px);
+  }
+}
+
+.nav-item a {
+  font-size: 1.3rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0 10px;
+  color: #1f5c33;
+
+  &:hover {
+    color: #3b9c5a;
+  }
 }

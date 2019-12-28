@@ -1,0 +1,54 @@
+.page-title {
+  font-weight: bold;
+}
+
+.bwm-form {
+  h1 {
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  form {
+    margin: 10px 0;
+
+    .alert {
+      p {
+        margin: 0;
+      }
+    }
+
+    .image-container {
+      position: relative;
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+
+    label {
+      font-size: 12px;
+    }
+
+    .form-text {
+      font-size: 13px;
+    }
+  }
+}
+
+.btn-bwn {
+  background: #31914d;
+  font-size: 1.3rem;
+  color: #eef;
+
+  &:hover {
+    background: #35b869;
+  }
+}
+
+.alert {
+  color: rgb(255, 11, 11) !important;
+  margin-top: -10px;
+  margin-bottom: -8px;
+}

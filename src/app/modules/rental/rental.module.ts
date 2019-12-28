@@ -7,10 +7,21 @@ import { Routes, RouterModule } from "@angular/router";
 import { RentalDetailsComponent } from "../../components/rental/rental-details/rental-details.component";
 import { GMapModule } from "../g-map/g-map.module";
 import { CameItPipe } from "src/app/pipes/came-it.pipe";
+import { AuthGuard } from "src/app/guards/auth.guard";
 
 const routes: Routes = [
-  { path: "rentals", component: RentalComponent },
-  { path: "rentals/:rentalId", component: RentalDetailsComponent }
+  {
+    path: "rentals",
+    component: RentalComponent,
+    children: [
+      { path: "", component: RentalListComponent },
+      {
+        path: ":rentalId",
+        component: RentalDetailsComponent,
+        canActivate: [AuthGuard]
+      }
+    ]
+  }
 ];
 @NgModule({
   declarations: [
