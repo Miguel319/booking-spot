@@ -40,7 +40,7 @@
       </ul>
       <ul *ngIf="isUserLoggedIn()" class="ml-auto navbar-nav">
         <li class="nav-item">
-          <a href="#">{{ currentUser }}</a>
+          <a href="#" class="current">{{ currentUser }}</a>
         </li>
         <li class="nav-item">
           <a (click)="logoutUser()">Logout</a>

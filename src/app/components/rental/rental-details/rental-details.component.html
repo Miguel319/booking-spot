@@ -4,16 +4,15 @@
       <div class="col-md-6">
         <img src="{{ rental.image }}" alt="" />
       </div>
-      <div class="col-md-6">
-        <!-- Will be replaced with map !!!! -->
-        <app-g-map [location]="rental.city + ', ' + rental.street"></app-g-map>
+      <div class="col-md-6 ">
+        <app-g-map class="map" [location]="rental.city + ', ' + rental.street"></app-g-map>
       </div>
     </div>
   </div>
 
   <div class="details-section">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-5">
         <div class="rental">
           <h2 class="rental-type {{ rental.category }}">
             {{ rental.shared }} {{ rental.category }}
@@ -53,7 +52,11 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">BOOKING</div>
+      <div class="col-md-7">
+          <app-rental-detail-booking
+          [price]="rental.dailyRate"
+        ></app-rental-detail-booking>
+      </div>
     </div>
   </div>
 </section>

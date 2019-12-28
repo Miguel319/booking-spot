@@ -6,8 +6,9 @@ import { RentalComponent } from "../../components/rental/rental.component";
 import { Routes, RouterModule } from "@angular/router";
 import { RentalDetailsComponent } from "../../components/rental/rental-details/rental-details.component";
 import { GMapModule } from "../g-map/g-map.module";
-import { CameItPipe } from "src/app/pipes/came-it.pipe";
+import { NgbDatepickerModule } from "@ng-bootstrap/ng-bootstrap";
 import { AuthGuard } from "src/app/guards/auth.guard";
+import { RentalDetailBookingComponent } from "src/app/components/rental/rental-details/rental-detail-booking/rental-detail-booking.component";
 
 const routes: Routes = [
   {
@@ -28,14 +29,21 @@ const routes: Routes = [
     RentalListComponent,
     RentalItemComponent,
     RentalComponent,
-    RentalDetailsComponent
+    RentalDetailsComponent,
+    RentalDetailBookingComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), GMapModule],
+  imports: [
+    CommonModule,
+    NgbDatepickerModule,
+    RouterModule.forChild(routes),
+    GMapModule
+  ],
   exports: [
     RentalListComponent,
     RentalItemComponent,
     RentalComponent,
-    RentalDetailsComponent
+    RentalDetailsComponent,
+    RentalDetailBookingComponent
   ]
 })
 export class RentalModule {}

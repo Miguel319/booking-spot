@@ -19,7 +19,7 @@
       }
 
       &-title {
-          margin-top:20px;
+        margin-top: 20px;
         margin-bottom: 5px;
         font-size: 32px;
         font-weight: 700;
@@ -64,5 +64,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and(max-width: 1200px) {
+  .map {
+    height: 75vh !important;
   }
 }

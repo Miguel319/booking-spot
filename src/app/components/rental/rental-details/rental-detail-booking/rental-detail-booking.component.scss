@@ -1,0 +1,86 @@
+.booking {
+  padding: 20px;
+  border: 1px solid #eee;
+
+  .btn-confirm {
+    background-color: #ff5a5f;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 13px;
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+
+  &-price {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &-note-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  &-note-text {
+    font-size: 13px;
+    font-weight: 300;
+  }
+}
+.form-group.hidden {
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(49, 161, 55);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(18, 163, 30, 0.521);
+}
+
+.guests,
+.dates {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.btn-success {
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.booking-price {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.per {
+  font-size: 0.9rem;
+  font-style: normal;
+  color: #9fb1ad;
+}
+
+@media screen and(max-width: 1001px) {
+  .c2 {
+    margin-top: 20px;
+    margin-left: 0 !important;
+  }
+}

@@ -9,6 +9,7 @@ import { RentalModule } from "./modules/rental/rental.module";
 import { CameItPipe } from "./pipes/came-it.pipe";
 import { AuthModule } from "./modules/auth/auth.module";
 
+
 @NgModule({
   declarations: [AppComponent, NavbarComponent, CameItPipe],
   imports: [
@@ -16,7 +17,7 @@ import { AuthModule } from "./modules/auth/auth.module";
     AppRoutingModule,
     RentalModule,
     HttpClientModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [CameItPipe],
   bootstrap: [AppComponent]
