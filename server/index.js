@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 //Routes
 const rentalRoutes = require("./routes/rental");
 const authRoutes = require("./routes/auth");
+const bookingRoutes = require('./routes/booking');
 
 // Mongoose connection
 mongoose
@@ -29,6 +30,7 @@ app.use(cookieParser());
 
 app.use(`${BASE_URL}/rentals`, rentalRoutes);
 app.use(`${BASE_URL}/auth`, authRoutes);
+app.use(`${BASE_URL}/bookings`, bookingRoutes);
  
 app.use(errorHandler);
 

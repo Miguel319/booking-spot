@@ -84,6 +84,11 @@ var DummyDb = /** @class */ (function () {
                 username: "Test",
                 email: "test@gmail.com",
                 password: "testtest"
+            },
+            {
+                username: "John",
+                email: "john@gmail.com",
+                password: "johnjohn"
             }
         ];
     };
@@ -103,15 +108,30 @@ var DummyDb = /** @class */ (function () {
         });
     };
     DummyDb.prototype.addRentalsToDb = function () {
-        var user = new User(this.users[0]);
-        for (var _i = 0, _a = this.rentals; _i < _a.length; _i++) {
-            var rental = _a[_i];
-            var newRental = new Rental(rental);
-            newRental.user = user;
-            user.rentals.push(newRental);
-            newRental.save();
-        }
-        user.save();
+        return __awaiter(this, void 0, void 0, function () {
+            var user, user2, _i, _a, rental, newRental;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        user = new User(this.users[0]);
+                        user2 = new User(this.users[1]);
+                        for (_i = 0, _a = this.rentals; _i < _a.length; _i++) {
+                            rental = _a[_i];
+                            newRental = new Rental(rental);
+                            newRental.user = user;
+                            user.rentals.push(newRental);
+                            newRental.save();
+                        }
+                        return [4 /*yield*/, user.save()];
+                    case 1:
+                        _b.sent();
+                        return [4 /*yield*/, user2.save()];
+                    case 2:
+                        _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     DummyDb.prototype.seedToDb = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -120,7 +140,9 @@ var DummyDb = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.cleanDb()];
                     case 1:
                         _a.sent();
-                        this.addRentalsToDb();
+                        return [4 /*yield*/, this.addRentalsToDb()];
+                    case 2:
+                        _a.sent();
                         return [2 /*return*/];
                 }
             });
