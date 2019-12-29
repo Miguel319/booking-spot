@@ -1,5 +1,4 @@
 const User = require("../models/user");
-const { normalizeErrors } = require("../helpers/mongoose");
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("../middleware/async");
 const ErrorResponse = require("../helpers/errorResponse");

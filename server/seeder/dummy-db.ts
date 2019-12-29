@@ -57,32 +57,40 @@ class DummyDb {
         username: "Test",
         email: "test@gmail.com",
         password: "testtest"
+      },
+      {
+        username: "John",
+        email: "john@gmail.com",
+        password: "johnjohn"
       }
     ];
   }
 
-  async cleanDb() {
+  private async cleanDb() {
     await User.deleteMany();
     await Rental.deleteMany();
   }
 
-  addRentalsToDb() {
+  private async addRentalsToDb() {
     const user = new User(this.users[0]);
+    const user2 = new User(this.users[1]);
 
     for (let rental of this.rentals) {
       const newRental = new Rental(rental);
       newRental.user = user;
-      
+
       user.rentals.push(newRental);
 
       newRental.save();
     }
-    user.save();
+
+    await user.save();
+    await user2.save();
   }
 
   async seedToDb() {
     await this.cleanDb();
-    this.addRentalsToDb();
+    await this.addRentalsToDb();
   }
 }
 

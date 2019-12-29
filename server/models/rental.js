@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const rentalSchema = new Schema({
   title: {
     type: String,
     required: true,
-    max: [120, 'The title can\'t have more than 120 characters.']
+    max: [120, "The title can't have more than 120 characters."]
   },
   city: {
     type: String,
@@ -15,7 +15,7 @@ const rentalSchema = new Schema({
   street: {
     type: String,
     required: true,
-    min: [4, 'The street must have at least 4 characters.']
+    min: [4, "The street must have at least 4 characters."]
   },
   category: {
     type: String,
@@ -37,7 +37,7 @@ const rentalSchema = new Schema({
   description: {
     type: String,
     required: true,
-    min: [4, 'The description must have at least 4 characters.']
+    min: [4, "The description must have at least 4 characters."]
   },
   dailyRate: {
     type: Number,
@@ -49,8 +49,14 @@ const rentalSchema = new Schema({
   },
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
-  }
+    ref: "User"
+  },
+  bookings: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Booking"
+    }
+  ]
 });
 
-module.exports = mongoose.model('Rental', rentalSchema);
+module.exports = mongoose.model("Rental", rentalSchema);
